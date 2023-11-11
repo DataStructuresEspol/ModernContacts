@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package modelo;
 
-import java.time.LocalDate;
+package com.espol.moderncontacts.model;
 
-/**
- *
- * @author ariel
- */
+
+import java.util.Date;
+
+
 public class Empresa extends Contacto{
-    private LocalDate fechaAniversario;
+    private Date fechaAniversario;
+    private String tipo = "empresa";
 
     public Empresa(String nombre, String telefono, String codePais) {
         super(nombre, telefono, codePais);
     }
+    
+    public void setFechaAniversario(Date fecha){fechaAniversario = fecha;}
+    
+    public String getTipo(){return tipo;}
     
 }

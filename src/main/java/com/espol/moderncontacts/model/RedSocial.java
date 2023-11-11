@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package modelo;
 
-/**
- *
- * @author ariel
- */
-public class RedSocial {
+package com.espol.moderncontacts.model;
+
+import java.io.Serializable;
+
+public class RedSocial implements Serializable{
     private String red;
     private TipoRedSocial tipoRedSocial;
 

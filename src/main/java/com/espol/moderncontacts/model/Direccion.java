@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package modelo;
 
-/**
- *
- * @author ariel
- */
-public class Direccion {
+package com.espol.moderncontacts.model;
+
+import java.io.Serializable;
+
+public class Direccion implements Serializable{
     private String direccion;
     private String linkDireccion;
     private TipoDireccion tipoDireccion;

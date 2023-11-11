@@ -1,17 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package modelo;
 
+package com.espol.moderncontacts.model;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * @author ariel
- */
-public class Contacto {
+public class Contacto implements Serializable{
     private String nombre;
     private int id;
     private String telefono;
@@ -20,11 +15,10 @@ public class Contacto {
     private List<String> fotos;
     private Direccion direccion;
     private List<Email> emails;
-    private List<String> id_social;
+    private List<RedSocial> redesSociales;
     private LinkedList<Contacto> contactosRelacionados;
     private LinkedList<Integer> amigos;
     private LinkedList<Integer> familiares;
-    private LinkedList<Integer> familias;
     private LinkedList<Integer> companeros;
     private LinkedList<Integer> favoritos;
 
@@ -32,6 +26,10 @@ public class Contacto {
         this.nombre = nombre;
         this.telefono = telefono;
         this.codePais = codePais;
+        fotos = new ArrayList<String>();
+        emails = new ArrayList<Email>();
+        redesSociales = new ArrayList<RedSocial>();
+        contactosRelacionados = new LinkedList<Contacto>();
     }
     
 
@@ -67,8 +65,8 @@ public class Contacto {
         return emails;
     }
 
-    public List<String> getId_social() {
-        return id_social;
+    public List<RedSocial> getRedesSociales() {
+        return redesSociales;
     }
 
     public LinkedList<Contacto> getContactosRelacionados() {
@@ -83,10 +81,6 @@ public class Contacto {
         return familiares;
     }
 
-    public LinkedList<Integer> getFamilias() {
-        return familias;
-    }
-
     public LinkedList<Integer> getCompaneros() {
         return companeros;
     }
@@ -97,6 +91,18 @@ public class Contacto {
     
     public int getNumInfo(){
         return 0;
+    }
+    
+    public void setFotoPerfil(String foto){
+        fotoPerfil = foto;
+        fotos.add(fotoPerfil);
+    }
+    
+    public void setDireccion(Direccion d){direccion = d;}
+    
+    @Override
+    public String toString(){
+        return String.format("Nombre: %s; Teléfono: %s; CodePais: %s", nombre, telefono, codePais);
     }
     
 }
