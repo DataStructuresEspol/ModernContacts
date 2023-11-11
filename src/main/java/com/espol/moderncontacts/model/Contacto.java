@@ -30,6 +30,7 @@ public class Contacto implements Serializable{
     // No controller will store info
 
     private static ArrayList<Contacto> contactos;
+    private static Contacto selectedContact;
 
     public Contacto(String nombre, String telefono, String codePais) {
         this.nombre = nombre;
@@ -129,5 +130,16 @@ public class Contacto implements Serializable{
         Contacto.loadContacts();
         return Contacto.contactos;
     }
-    
+
+    public static int getContactsSize(){
+        return contactos.size();
+    }
+
+    public static void setSelectedContact(Contacto contacto) {
+        Contacto.selectedContact = contacto;
+    }
+
+    public static Contacto getSelectedContact() {
+        return Contacto.selectedContact;
+    }
 }

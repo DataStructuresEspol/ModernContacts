@@ -60,9 +60,9 @@
             </AnchorPane>
          </children>
       </HBox>
-      <ScrollPane prefHeight="512.0" prefWidth="1240.0">
+      <ScrollPane fx:id="scrollPane" prefHeight="512.0" prefWidth="1240.0" stylesheets="@css/Scrollbar.css">
          <content>
-            <VBox fx:id="contacts" prefHeight="200.0" prefWidth="1236.0" />
+            <VBox fx:id="contacts" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="945.0" spacing="10.0" style="-fx-background-color: white;" />
          </content>
       </ScrollPane>
    </children>
