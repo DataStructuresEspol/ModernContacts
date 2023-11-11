@@ -73,24 +73,24 @@ public class Persona extends Contacto{
         e2.getFotos().add("netflix2.png");
         e2.getFotos().add("netflix3.png");
         
-        e3.setFotoPerfil("pepsi1");
-        e3.getFotos().add("pepsi2");
-        e3.getFotos().add("pepsi3");
-        e3.getFotos().add("pepsi4");
-        e3.getFotos().add("pepsi5");
+        e3.setFotoPerfil("pepsi1.png");
+        e3.getFotos().add("pepsi2.png");
+        e3.getFotos().add("pepsi3.png");
+        e3.getFotos().add("pepsi4.png");
+        e3.getFotos().add("pepsi5.png");
         
-        e4.setFotoPerfil("kfc1");
-        e4.getFotos().add("kfc2");
-        e4.getFotos().add("kfc3");
-        e4.getFotos().add("kfc4");
-        e4.getFotos().add("kfc5");
-        e4.getFotos().add("kfc6");
-        e4.getFotos().add("kfc7");
+        e4.setFotoPerfil("kfc1.png");
+        e4.getFotos().add("kfc2.png");
+        e4.getFotos().add("kfc3.png");
+        e4.getFotos().add("kfc4.png");
+        e4.getFotos().add("kfc5.png");
+        e4.getFotos().add("kfc6.png");
+        e4.getFotos().add("kfc7.png");
         
-        e5.setFotoPerfil("mc1");
-        e5.getFotos().add("mc2");
-        e5.getFotos().add("mc3");
-        e5.getFotos().add("mc4");
+        e5.setFotoPerfil("mc1.png");
+        e5.getFotos().add("mc2.png");
+        e5.getFotos().add("mc3.png");
+        e5.getFotos().add("mc4.png");
         
         
         p4.setFechaCumple(new Date(2023, 6, 1));

@@ -1,12 +1,16 @@
 
 package com.espol.moderncontacts.model;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Contacto implements Serializable{
+    private static final long serialVersionUID = -7174814431963121356L;
+
     private String nombre;
     private int id;
     private String telefono;
@@ -21,6 +25,11 @@ public class Contacto implements Serializable{
     private LinkedList<Integer> familiares;
     private LinkedList<Integer> companeros;
     private LinkedList<Integer> favoritos;
+
+    // Every static method/attribute will contain logic to be consumed by controllers
+    // No controller will store info
+
+    private static ArrayList<Contacto> contactos;
 
     public Contacto(String nombre, String telefono, String codePais) {
         this.nombre = nombre;
@@ -103,6 +112,22 @@ public class Contacto implements Serializable{
     @Override
     public String toString(){
         return String.format("Nombre: %s; Teléfono: %s; CodePais: %s", nombre, telefono, codePais);
+    }
+
+    public static void loadContacts() {
+        final String RUTA = "src/main/resources/com/espol/moderncontacts/serializables/contactos.ser";
+        try (FileInputStream fis = new FileInputStream(RUTA)) {
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Contacto.contactos = (ArrayList<Contacto>) ois.readObject();
+            ois.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Contacto> getContactos() {
+        Contacto.loadContacts();
+        return Contacto.contactos;
     }
     
 }

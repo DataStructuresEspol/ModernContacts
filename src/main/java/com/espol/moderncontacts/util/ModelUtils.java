@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.espol.moderncontacts.model;
+package com.espol.moderncontacts.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,7 +12,7 @@ import java.io.IOException;
  *
  * @author ariel
  */
-public class Util {
+public class ModelUtils {
     public String getPais(String code){
         String pais = "";
         try(BufferedReader br = new BufferedReader(new FileReader("codePais.txt"))){
