@@ -15,7 +15,7 @@ public class Persona extends Contacto{
     private LocalDate fechaCumple;
     private String apellido;
 
-    public Persona(String nombre, String apellido, String telefono, int codePais) {
+    public Persona(String nombre, String apellido, String telefono, String codePais) {
         super(nombre, telefono, codePais);
         this.apellido = apellido;
     }

@@ -15,7 +15,7 @@ public class Contacto {
     private String nombre;
     private int id;
     private String telefono;
-    private int codePais;
+    private String codePais;
     private String fotoPerfil;
     private List<String> fotos;
     private Direccion direccion;
@@ -28,7 +28,7 @@ public class Contacto {
     private LinkedList<Integer> companeros;
     private LinkedList<Integer> favoritos;
 
-    public Contacto(String nombre, String telefono, int codePais) {
+    public Contacto(String nombre, String telefono, String codePais) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.codePais = codePais;
@@ -47,7 +47,7 @@ public class Contacto {
         return telefono;
     }
 
-    public int getCodePais() {
+    public String getCodePais() {
         return codePais;
     }
 

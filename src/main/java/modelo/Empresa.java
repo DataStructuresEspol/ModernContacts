@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class Empresa extends Contacto{
     private LocalDate fechaAniversario;
 
-    public Empresa(String nombre, String telefono, int codePais) {
+    public Empresa(String nombre, String telefono, String codePais) {
         super(nombre, telefono, codePais);
     }
     
