@@ -1,6 +1,7 @@
 
-package com.espol.moderncontacts;
+package com.espol.moderncontacts.controllers;
 
+import com.espol.moderncontacts.PrimaryController;
 import com.espol.moderncontacts.model.Contacto;
 import com.espol.moderncontacts.model.Direccion;
 import com.espol.moderncontacts.model.Email;
@@ -10,6 +11,7 @@ import com.espol.moderncontacts.model.RedSocial;
 import com.espol.moderncontacts.model.TipoDireccion;
 import com.espol.moderncontacts.model.TipoEmail;
 import com.espol.moderncontacts.model.TipoRedSocial;
+import com.espol.moderncontacts.util.LoadImage;
 import com.espol.moderncontacts.util.ModelUtils;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,14 +21,14 @@ import java.util.Date;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Circle;
 
 public class EditarContacto {
 
     @FXML
-    private ImageView fotoPerfil;
+    private Circle profilePic;
     @FXML
     private HBox nombreBox;
     @FXML
@@ -106,7 +108,7 @@ public class EditarContacto {
     }
     
     private void llenarPersona(Persona p){
-        if (p.getFotoPerfil()!=null){fotoPerfil.setImage(ModelUtils.getImage(App.fotoRuta + p.getFotoPerfil()));}
+        profilePic.setFill(LoadImage.loadPattern(PrimaryController.RESOURCES_PATH + "fotos/" + p.getFotoPerfil()));
         nombre.setText(p.getNombre());
         apellido.setText(p.getApellido());
         celular.setText(p.getTelefono());
@@ -127,7 +129,7 @@ public class EditarContacto {
     }
     
     private void llenarEmpresa(Empresa e){
-        if (e.getFotoPerfil()!=null){fotoPerfil.setImage(ModelUtils.getImage(App.fotoRuta + e.getFotoPerfil()));}
+        profilePic.setFill(LoadImage.loadPattern(PrimaryController.RESOURCES_PATH + "fotos/" + e.getFotoPerfil()));
         nombre.setText(e.getNombre());
         celular.setText(e.getTelefono());
         if (!e.getEmails().isEmpty()){
