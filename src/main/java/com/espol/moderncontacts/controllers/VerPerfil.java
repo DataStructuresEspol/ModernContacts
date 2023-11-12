@@ -1,10 +1,14 @@
 
 package com.espol.moderncontacts.controllers;
 
+import com.espol.moderncontacts.App;
 import com.espol.moderncontacts.PrimaryController;
 import com.espol.moderncontacts.model.Contacto;
+import com.espol.moderncontacts.model.Empresa;
 import com.espol.moderncontacts.model.Persona;
 import com.espol.moderncontacts.util.LoadImage;
+import com.espol.moderncontacts.util.ModelUtils;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -80,7 +84,7 @@ public class VerPerfil {
     private void llenarEmpresa(Empresa e){
         nombrePerfil.setText(e.getNombreCompleto());
         numeros.setText(e.getTelefono());
-        if (e.getFotoPerfil()!=null){fotoPerfil.setImage(ModelUtils.getImage(App.fotoRuta + e.getFotoPerfil()));}
+        profilePic.setFill(LoadImage.loadPattern(PrimaryController.RESOURCES_PATH + "fotos/" + e.getFotoPerfil()));
         if (e.getDireccion()!=null){direcciones.setText(e.getDireccion().toString());}
         if (!e.getEmails().isEmpty()){emails.setText(e.getTodoEmail());}
         if (e.getFechaAniversario()!=null){fechas.setText(e.getFechaAniversario().toString());}
