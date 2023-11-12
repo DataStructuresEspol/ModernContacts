@@ -40,7 +40,7 @@ public class AgregarContacto {
     @FXML
     private TextField red;
     
-    private String tipo;
+    public static String tipo;
     @FXML
     private TextField nombre;
 
