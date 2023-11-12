@@ -29,6 +29,8 @@ public class Contacto implements Serializable{
     // Every static method/attribute will contain logic to be consumed by controllers
     // No controller will store info
 
+    private static final int USER_ID = 4;
+    private static Contacto usuario;
     private static ArrayList<Contacto> contactos;
     private static Contacto selectedContact;
 
@@ -131,15 +133,34 @@ public class Contacto implements Serializable{
         return Contacto.contactos;
     }
 
-    public static int getContactsSize(){
-        return contactos.size();
+    // This method will be called by the controller to set the current user
+    public static void setUsuario(){
+        usuario = getContactos().get(USER_ID);
     }
 
+    // List of contacts related to the current selected user
+    public static LinkedList<Contacto> getUserContacts(){
+        return usuario.getContactosRelacionados();
+    }
+
+    public static int getUserNumberContacts(){
+        return usuario.getContactosRelacionados().size();
+    }
+
+    // This method will be called by the controller to set the selected contact when clicked
     public static void setSelectedContact(Contacto contacto) {
         Contacto.selectedContact = contacto;
     }
 
+    // This method will be called by the controller to get the selected contact
     public static Contacto getSelectedContact() {
         return Contacto.selectedContact;
     }
+
+    // This method will be called by the controller to get the current user
+    public static Contacto getUser() {
+        return usuario;
+    }
+
+
 }

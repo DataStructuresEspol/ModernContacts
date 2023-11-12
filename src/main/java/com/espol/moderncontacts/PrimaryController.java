@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+import com.espol.moderncontacts.logic.ScrollContacts;
 import com.espol.moderncontacts.model.Contacto;
 import com.espol.moderncontacts.util.LoadImage;
 
@@ -22,13 +23,25 @@ public class PrimaryController {
     private VBox contacts;
 
     @FXML
-    private ScrollPane scrollPane;
+    private Label currentObservedContactName;
+
+    @FXML
+    private Circle currentObservedContactPic;
 
     @FXML
     private ImageView editProfile;
 
     @FXML
+    private ImageView nextContact;
+
+    @FXML
+    private ImageView previousContact;
+
+    @FXML
     private Circle profilePic;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     @FXML
     private Label userContactsAmount;
@@ -36,17 +49,18 @@ public class PrimaryController {
     @FXML
     private Label username;
 
+    ScrollContacts scrollContacts;
+
     @FXML
     private void initialize() {
-        ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "images/profile_pic.jpg");
-        profilePic.setFill(imagePattern);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setStyle("-fx-background-color: transparent;");
         showContacts();
+        scrollContacts = new ScrollContacts();
     }
 
     private void showContacts() {
-        for (Contacto contacto: Contacto.getContactos()) {
+        Contacto.setUsuario();
+        /*
+        for (Contacto contacto: Contacto.getUserContacts()) {
             // Container to be added to the contacts scroll pane
             HBox contactContainer = new HBox();
             Circle contactPic = new Circle();
@@ -75,7 +89,27 @@ public class PrimaryController {
                 }
             });
         }
-        userContactsAmount.setText(Contacto.getContactsSize() + " contactos");
+        */
+        userContactsAmount.setText(Contacto.getUserContacts().size() + " contactos");
+        username.setText(Contacto.getUser().getNombre());
+        ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + Contacto.getUser().getFotoPerfil());
+        profilePic.setFill(imagePattern);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setStyle("-fx-background-color: transparent;");
+    }
+
+    @FXML
+    private void setNextContact() {
+        currentObservedContactName.setText(scrollContacts.nextContact().getNombre());
+        ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + scrollContacts.nextContact().getFotoPerfil());
+        currentObservedContactPic.setFill(imagePattern);
+    }
+
+    @FXML
+    private void setPreviousContact() {
+        currentObservedContactName.setText(scrollContacts.previousContact().getNombre());
+        ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + scrollContacts.previousContact().getFotoPerfil());
+        currentObservedContactPic.setFill(imagePattern);
     }
 }
 
