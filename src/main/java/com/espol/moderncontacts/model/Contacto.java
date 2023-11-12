@@ -135,6 +135,7 @@ public class Contacto implements Serializable{
 
     // This method will be called by the controller to set the current user
     public static void setUsuario(){
+        
         usuario = getContactos().get(USER_ID);
     }
 

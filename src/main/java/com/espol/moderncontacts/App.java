@@ -1,5 +1,6 @@
 package com.espol.moderncontacts;
 
+import com.espol.moderncontacts.model.Contacto;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,12 +16,13 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("editContact"), 480, 720);
+        Contacto.setUsuario();
+        scene = new Scene(loadFXML("primary"), 480, 720);
         stage.setScene(scene);
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 

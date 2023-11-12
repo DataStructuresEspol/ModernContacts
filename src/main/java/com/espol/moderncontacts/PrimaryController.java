@@ -9,6 +9,7 @@ import javafx.scene.shape.Circle;
 import com.espol.moderncontacts.logic.ScrollContacts;
 import com.espol.moderncontacts.model.Contacto;
 import com.espol.moderncontacts.util.LoadImage;
+import java.io.IOException;
 
 public class PrimaryController {
     public static final String RESOURCES_PATH = "src/main/resources/com/espol/moderncontacts/";
@@ -34,14 +35,16 @@ public class PrimaryController {
     ScrollContacts scrollContacts;
 
     @FXML
-    private void initialize() {
+    private void initialize(){
         showContacts();
-        scrollContacts = new ScrollContacts();
-        setCurrentObservedContact();
+        
     }
 
-    private void showContacts() {
-        Contacto.setUsuario();
+    private void showContacts(){
+        
+        
+        scrollContacts = new ScrollContacts();
+        setCurrentObservedContact();
         /*
         for (Contacto contacto: Contacto.getUserContacts()) {
             // Container to be added to the contacts scroll pane
@@ -77,6 +80,14 @@ public class PrimaryController {
         username.setText(Contacto.getUser().getNombre());
         ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + Contacto.getUser().getFotoPerfil());
         profilePic.setFill(imagePattern);
+        
+        profilePic.setOnMouseClicked((e)-> {
+            try {
+                visualizarPerfil(Contacto.getUser());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
     }
 
     @FXML
@@ -95,6 +106,18 @@ public class PrimaryController {
         currentObservedContactName.setText(scrollContacts.getCurrentObservedContact().getNombre());
         ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + scrollContacts.getCurrentObservedContact().getFotoPerfil());
         currentObservedContactPic.setFill(imagePattern);
+        currentObservedContactPic.setOnMouseClicked((e)-> {
+            try {
+                visualizarPerfil(scrollContacts.getCurrentObservedContact());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+    }
+    
+    private void visualizarPerfil(Contacto c) throws IOException{
+        Contacto.setSelectedContact(c);
+        App.setRoot("verPerfil");
     }
 }
 

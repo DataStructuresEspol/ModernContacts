@@ -53,7 +53,7 @@ public class VerPerfil {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Contacto contacto = objeto.get(9); //Eliminar cuando se enlazen las páginas
+        Contacto contacto = Contacto.getSelectedContact(); //Eliminar cuando se enlazen las páginas
         if (contacto.getTipo().equals("persona")){
             Persona persona = (Persona) contacto;
             llenarPersona(persona);
@@ -66,10 +66,15 @@ public class VerPerfil {
     }
 
     @FXML
-    void borrarPerfil(MouseEvent event) {}
+    void borrarPerfil(MouseEvent event) throws IOException{
+        Contacto.getUser().getContactosRelacionados().remove(Contacto.getSelectedContact());
+        App.setRoot("primary");
+    }
 
     @FXML
-    void retroceder(MouseEvent event) {}
+    void retroceder(MouseEvent event) throws IOException{
+        App.setRoot("primary");
+    }
     
     private void llenarPersona(Persona p){
         nombrePerfil.setText(p.getNombreCompleto());
