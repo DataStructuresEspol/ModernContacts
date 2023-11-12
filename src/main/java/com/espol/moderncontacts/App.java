@@ -16,12 +16,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-<<<<<<< HEAD
         Contacto.setUsuario();
         scene = new Scene(loadFXML("primary"), 480, 720);
-=======
-        scene = new Scene(loadFXML("createContact"), 480, 720);
->>>>>>> d27f8a224cc08625966462691343315e5c3d635c
         stage.setScene(scene);
         stage.show();
     }
