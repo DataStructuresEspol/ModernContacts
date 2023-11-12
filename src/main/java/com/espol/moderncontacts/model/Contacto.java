@@ -35,10 +35,9 @@ public class Contacto implements Serializable{
     private static ArrayList<Contacto> contactos;
     private static Contacto selectedContact;
 
-    public Contacto(String nombre, String telefono, String codePais) {
+    public Contacto(String nombre, String telefono) {
         this.nombre = nombre;
         this.telefono = telefono;
-        this.codePais = codePais;
         fotos = new ArrayList<String>();
         emails = new ArrayList<Email>();
         redesSociales = new ArrayList<RedSocial>();
@@ -178,6 +177,8 @@ public class Contacto implements Serializable{
         for (RedSocial red: redesSociales){result+=red.toString()+"\n";}
         return result;
     }
+    
+    public void setNombre(String n){nombre = n;}
 
 
 }

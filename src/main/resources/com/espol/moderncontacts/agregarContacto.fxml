@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="420.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.moderncontacts.AgregarContacto">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="711.0" prefWidth="421.0" vbarPolicy="ALWAYS">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="713.0" prefWidth="409.0">
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="419.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <ImageView fitHeight="55.0" fitWidth="83.0" onMouseClicked="#retroceder" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/return.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="291.0">
+                                 <children>
+                                    <ImageView fx:id="fotoPerfil" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/profile.png" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox fx:id="nombreBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold; -fx-font-family: cambria math; -fx-font-style: italic; -fx-font-size: 12;" text="Nombre: " />
+                                          <TextField fx:id="nombre" prefHeight="25.0" prefWidth="80.0" />
+                                          <Label style="-fx-font-weight: bold; -fx-font-family: cambria math; -fx-font-style: italic; -fx-font-size: 12;" text="Apellido: " />
+                                          <TextField fx:id="apellido" prefHeight="25.0" prefWidth="74.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <ImageView fitHeight="72.0" fitWidth="63.0" onMouseClicked="#guardarPerfil" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/check.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="56.0">
+                                 <children>
+                                    <ImageView fitHeight="58.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/celular.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="362.0">
+                                 <children>
+                                    <HBox prefHeight="74.0" prefWidth="362.0">
+                                       <children>
+                                          <Label style="-fx-font-family: cambria; -fx-font-style: italic; -fx-font-size: 16;" text="Celulares" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="celular" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="56.0">
+                                 <children>
+                                    <ImageView fitHeight="58.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/email.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="362.0">
+                                 <children>
+                                    <HBox prefHeight="74.0" prefWidth="362.0">
+                                       <children>
+                                          <Label style="-fx-font-family: cambria; -fx-font-style: italic; -fx-font-size: 16;" text="Emails" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ChoiceBox fx:id="tipoEmail" prefHeight="25.0" prefWidth="125.0" />
+                                          <TextField fx:id="email" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="56.0">
+                                 <children>
+                                    <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/locate.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="362.0">
+                                 <children>
+                                    <HBox prefHeight="74.0" prefWidth="362.0">
+                                       <children>
+                                          <Label style="-fx-font-family: cambria; -fx-font-style: italic; -fx-font-size: 16;" text="Direcciones" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ChoiceBox fx:id="tipoDireccion" prefHeight="25.0" prefWidth="125.0" />
+                                          <TextField fx:id="direccion" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="56.0">
+                                 <children>
+                                    <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/fecha.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="362.0">
+                                 <children>
+                                    <HBox prefHeight="74.0" prefWidth="362.0">
+                                       <children>
+                                          <Label style="-fx-font-family: cambria; -fx-font-style: italic; -fx-font-size: 16;" text="Fechas" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="fecha" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="56.0">
+                                 <children>
+                                    <ImageView fitHeight="68.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@fotos/redes.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="362.0">
+                                 <children>
+                                    <HBox prefHeight="74.0" prefWidth="362.0">
+                                       <children>
+                                          <Label style="-fx-font-family: cambria; -fx-font-style: italic; -fx-font-size: 16;" text="Redes" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ChoiceBox fx:id="tipoRed" prefHeight="25.0" prefWidth="125.0" />
+                                          <TextField fx:id="red" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</FlowPane>

@@ -49,12 +49,16 @@ public class VerPerfil {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Contacto contacto = objeto.get(1);
+        Contacto contacto = objeto.get(9); //Eliminar cuando se enlazen las páginas
         if (contacto.getTipo().equals("persona")){
             Persona persona = (Persona) contacto;
-            System.out.println(persona.getFotoPerfil());
             llenarPersona(persona);
         }
+        else{
+            Empresa empresa = (Empresa) contacto;
+            llenarEmpresa(empresa);
+        }
+
     }
 
     @FXML
@@ -72,5 +76,16 @@ public class VerPerfil {
         if (p.getFechaCumple()!=null){fechas.setText(p.getFechaCumple().toString());}
         if (!p.getRedesSociales().isEmpty()){redes.setText(p.getTodoRedes());}
     }
+    
+    private void llenarEmpresa(Empresa e){
+        nombrePerfil.setText(e.getNombreCompleto());
+        numeros.setText(e.getTelefono());
+        if (e.getFotoPerfil()!=null){fotoPerfil.setImage(ModelUtils.getImage(App.fotoRuta + e.getFotoPerfil()));}
+        if (e.getDireccion()!=null){direcciones.setText(e.getDireccion().toString());}
+        if (!e.getEmails().isEmpty()){emails.setText(e.getTodoEmail());}
+        if (e.getFechaAniversario()!=null){fechas.setText(e.getFechaAniversario().toString());}
+        if (!e.getRedesSociales().isEmpty()){redes.setText(e.getTodoRedes());}
+    }
+
 }
 
