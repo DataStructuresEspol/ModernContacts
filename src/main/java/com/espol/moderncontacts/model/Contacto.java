@@ -13,6 +13,7 @@ public class Contacto implements Serializable{
 
     private String nombre;
     private int id;
+    protected String tipo;
     private String telefono;
     private String codePais;
     private String fotoPerfil;

@@ -1,6 +1,7 @@
 
 package com.espol.moderncontacts;
 
+import com.espol.moderncontacts.model.Contacto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -28,6 +29,12 @@ public class VerPerfil {
 
     @FXML
     private Label redes;
+    
+    @FXML
+    void initialize(){
+        Contacto contacto = Contacto.getSelectedContact();
+        
+    }
 
     @FXML
     void borrarPerfil(MouseEvent event) {

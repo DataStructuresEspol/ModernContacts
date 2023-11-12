@@ -13,11 +13,11 @@ public class Persona extends Contacto{
     
     private Date fechaCumple;
     private String apellido;
-    private String tipo = "persona";
 
     public Persona(String nombre, String apellido, String telefono, String codePais) {
         super(nombre, telefono, codePais);
         this.apellido = apellido;
+        tipo = "persona";
     }
     public String getTipo(){return tipo;}
     
