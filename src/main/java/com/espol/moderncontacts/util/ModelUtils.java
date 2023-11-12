@@ -1,19 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.espol.moderncontacts.util;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-/**
- *
- * @author ariel
- */
+
 public class ModelUtils {
-    public String getPais(String code){
+    public static String getPais(String code){
         String pais = "";
         try(BufferedReader br = new BufferedReader(new FileReader("codePais.txt"))){
             String line;
@@ -29,5 +26,16 @@ public class ModelUtils {
             e.printStackTrace();
         }
         return pais;
+    }
+    
+    public static Image getImage(String ruta){
+        Image img = null;
+        try{
+            FileInputStream input = new FileInputStream(ruta);
+            img = new Image(input);
+        }
+        catch(Exception e){e.printStackTrace();}
+        
+        return img;
     }
 }

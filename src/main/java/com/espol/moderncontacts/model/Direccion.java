@@ -37,5 +37,13 @@ public class Direccion implements Serializable{
         this.tipoDireccion = tipoDireccion;
     }
     
+    @Override
+    public String toString(){
+        if (linkDireccion!=null){
+        return String.format("%s: %s\n/s", tipoDireccion,direccion,linkDireccion);
+                }
+        else{return String.format("%s: %s", tipoDireccion,direccion);}
+    }
+    
     
 }

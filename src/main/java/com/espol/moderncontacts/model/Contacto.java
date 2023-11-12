@@ -162,6 +162,22 @@ public class Contacto implements Serializable{
     public static Contacto getUser() {
         return usuario;
     }
+    
+    public String getTipo(){return tipo;}
+    
+    public String getNombreCompleto(){return nombre;}
+    
+    public String getTodoEmail(){
+        String result = "";
+        for (Email email: emails){result+=email.toString()+"\n";}
+        return result;
+    }
+    
+    public String getTodoRedes(){
+        String result = "";
+        for (RedSocial red: redesSociales){result+=red.toString()+"\n";}
+        return result;
+    }
 
 
 }

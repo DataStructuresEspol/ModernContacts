@@ -28,5 +28,10 @@ public class RedSocial implements Serializable{
         this.tipoRedSocial = tipoRedSocial;
     }
     
+    @Override
+    public String toString(){
+        return String.format("%s: %s", tipoRedSocial,red);
+    }
+    
     
 }

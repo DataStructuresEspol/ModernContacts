@@ -14,12 +14,18 @@ public class Persona extends Contacto{
     private Date fechaCumple;
     private String apellido;
 
+
     public Persona(String nombre, String apellido, String telefono, String codePais) {
         super(nombre, telefono, codePais);
         this.apellido = apellido;
         tipo = "persona";
     }
-    public String getTipo(){return tipo;}
+    public String getApellido(){return apellido;}
+    
+    @Override
+    public String getNombreCompleto(){return super.getNombreCompleto() + " " + apellido;}
+    
+    public Date getFechaCumple(){return fechaCumple;}
     
     public void setFechaCumple(Date fecha){fechaCumple = fecha;}
     
@@ -231,7 +237,7 @@ public class Persona extends Contacto{
         contactos.add(e4);
         contactos.add(e5);
         
-        
+
         String ruta = "src/main/resources/com/espol/moderncontacts/serializables/contactos.ser";
         try {
             FileOutputStream fileOut = new FileOutputStream(ruta);

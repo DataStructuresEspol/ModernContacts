@@ -10,7 +10,7 @@ import java.io.IOException;
 
 
 public class App extends Application {
-
+    public static String fotoRuta = "src/main/resources/com/espol/moderncontacts/fotos/";
     private static Scene scene;
 
     @Override

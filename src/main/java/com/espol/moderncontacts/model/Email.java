@@ -29,5 +29,10 @@ public class Email implements Serializable{
         this.tipoEmail = tipoEmail;
     }
     
+    @Override
+    public String toString(){
+        return String.format("%s: %s", tipoEmail,email);
+    }
+    
     
 }

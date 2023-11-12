@@ -17,7 +17,7 @@ import com.espol.moderncontacts.model.Contacto;
 import com.espol.moderncontacts.util.LoadImage;
 
 public class PrimaryController {
-    private final String RESOURCES_PATH = "src/main/resources/com/espol/moderncontacts/";
+    public static final String RESOURCES_PATH = "src/main/resources/com/espol/moderncontacts/";
 
     @FXML
     private VBox contacts;
