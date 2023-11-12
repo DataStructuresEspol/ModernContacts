@@ -15,8 +15,8 @@ public class Persona extends Contacto{
     private String apellido;
 
 
-    public Persona(String nombre, String apellido, String telefono, String codePais) {
-        super(nombre, telefono, codePais);
+    public Persona(String nombre, String apellido, String telefono) {
+        super(nombre, telefono);
         this.apellido = apellido;
         tipo = "persona";
     }
@@ -29,23 +29,25 @@ public class Persona extends Contacto{
     
     public void setFechaCumple(Date fecha){fechaCumple = fecha;}
     
+    public void setApellido(String a){apellido = a;}
+    
      @Override
     public String toString(){
         return super.toString() + String.format("; Apellido: %s", apellido);
     }
     
     public static void main(String args[]){
-        Persona p1 = new Persona("Juan", "Alvaro", "0961539738", "593");
-        Persona p2 = new Persona("Maria", "Perez", "0915901234", "593");
-        Persona p3 = new Persona("Pepe", "Zambrano", "0987654321", "620");
-        Persona p4 = new Persona("Pedro", "Murillo", "0978563412", "320");
-        Persona p5 = new Persona("Daniel", "Mera", "0918273645", "320");
+        Persona p1 = new Persona("Juan", "Alvaro", "0961539738");
+        Persona p2 = new Persona("Maria", "Perez", "0915901234");
+        Persona p3 = new Persona("Pepe", "Zambrano", "0987654321");
+        Persona p4 = new Persona("Pedro", "Murillo", "0978563412");
+        Persona p5 = new Persona("Daniel", "Mera", "0918273645");
         
-        Empresa e1 = new Empresa("Amazon", "0961530891", "593");
-        Empresa e2 = new Empresa("Netflix", "0954637115", "593");
-        Empresa e3 = new Empresa("Pepsi", "0998745163", "593");
-        Empresa e4 = new Empresa("KFC", "0943237689", "593");
-        Empresa e5 = new Empresa("McDonals", "0912465466", "593");
+        Empresa e1 = new Empresa("Amazon", "0961530891");
+        Empresa e2 = new Empresa("Netflix", "0954637115");
+        Empresa e3 = new Empresa("Pepsi", "0998745163");
+        Empresa e4 = new Empresa("KFC", "0943237689");
+        Empresa e5 = new Empresa("McDonals", "0912465466");
         
         p1.setDireccion(new Direccion("Acacias", TipoDireccion.DOMICILIO));
         p2.setDireccion(new Direccion("Luque y Rumichaca", TipoDireccion.TRABAJO));

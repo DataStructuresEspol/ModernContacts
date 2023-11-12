@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="420.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.moderncontacts.VerPerfil">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="420.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.moderncontacts.AgregarContacto">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="711.0" prefWidth="421.0" vbarPolicy="ALWAYS">
         <content>
@@ -29,21 +31,28 @@
                                     </ImageView>
                                  </children>
                               </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="222.0">
+                              <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="291.0">
                                  <children>
                                     <ImageView fx:id="fotoPerfil" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@fotos/profile.png" />
                                        </image>
                                     </ImageView>
-                                    <Label fx:id="nombrePerfil" style="-fx-font-weight: bold; -fx-font-family: cambria math; -fx-font-style: italic; -fx-font-size: 16;" text="Profile Name" />
+                                    <HBox fx:id="nombreBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold; -fx-font-family: cambria math; -fx-font-style: italic; -fx-font-size: 12;" text="Nombre: " />
+                                          <TextField fx:id="nombre" prefHeight="25.0" prefWidth="80.0" />
+                                          <Label style="-fx-font-weight: bold; -fx-font-family: cambria math; -fx-font-style: italic; -fx-font-size: 12;" text="Apellido: " />
+                                          <TextField fx:id="apellido" prefHeight="25.0" prefWidth="74.0" />
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="60.0" fitWidth="54.0" onMouseClicked="#borrarPerfil" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="72.0" fitWidth="63.0" onMouseClicked="#guardarPerfil" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@fotos/delete.png" />
+                                          <Image url="@fotos/check.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -70,7 +79,7 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="numeros" style="-fx-font-style: cambria;" text="..." />
+                                          <TextField fx:id="celular" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -100,7 +109,8 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="emails" style="-fx-font-style: cambria;" text="..." />
+                                          <ChoiceBox fx:id="tipoEmail" prefHeight="25.0" prefWidth="125.0" />
+                                          <TextField fx:id="email" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -130,7 +140,8 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="direcciones" style="-fx-font-style: cambria;" text="..." />
+                                          <ChoiceBox fx:id="tipoDireccion" prefHeight="25.0" prefWidth="125.0" />
+                                          <TextField fx:id="direccion" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -160,7 +171,7 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="fechas" style="-fx-font-style: cambria;" text="..." />
+                                          <TextField fx:id="fecha" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -190,7 +201,8 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="redes" style="-fx-font-style: cambria;" text="..." />
+                                          <ChoiceBox fx:id="tipoRed" prefHeight="25.0" prefWidth="125.0" />
+                                          <TextField fx:id="red" />
                                        </children>
                                     </HBox>
                                  </children>
