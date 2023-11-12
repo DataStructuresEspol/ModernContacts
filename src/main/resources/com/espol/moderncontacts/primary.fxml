@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -69,17 +69,30 @@
                      <image>
                         <Image url="@images/next-rtl.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                   </ImageView>
                </children>
             </StackPane>
-            <VBox alignment="CENTER" prefHeight="388.0" prefWidth="585.0">
+            <VBox alignment="CENTER" prefHeight="388.0" prefWidth="585.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #16A085,#F4D03F); -fx-background-radius: 20;">
                <children>
-                  <Label fx:id="currentObservedContactName" text="Label">
+                  <Label fx:id="currentObservedContactName" text="Label" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="50.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Lato Semibold" size="33.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                   </Label>
-                  <Circle fx:id="currentObservedContactPic" fill="WHITE" radius="75.0" stroke="#80383800" strokeType="INSIDE" />
+                  <Circle fx:id="currentObservedContactPic" fill="WHITE" radius="75.0" stroke="#80383800" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </VBox>
             <StackPane prefHeight="150.0" prefWidth="200.0">
@@ -88,16 +101,14 @@
                      <image>
                         <Image url="@images/next-ltr.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                   </ImageView>
                </children>
             </StackPane>
          </children>
       </HBox>
-      <ScrollPane fx:id="scrollPane" prefHeight="0.0" prefWidth="380.0" stylesheets="@css/Scrollbar.css">
-         <content>
-            <VBox fx:id="contacts" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="945.0" spacing="10.0" style="-fx-background-color: white;" />
-         </content>
-      </ScrollPane>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

@@ -1,6 +1,7 @@
 package com.espol.moderncontacts.util;
 
 import java.io.FileInputStream;
+import java.util.Objects;
 
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -10,16 +11,13 @@ public class LoadImage {
         try (FileInputStream fis = new FileInputStream(path)) {
             return new Image(fis);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error al cargar la imagen");
             return null;
         }
     }
 
     public static ImagePattern loadPattern(String path) {
         Image img = LoadImage.loadImage(path);
-        if (img != null) {
-            return new ImagePattern(img);
-        }
-        return null;
+        return new ImagePattern(Objects.requireNonNullElseGet(img, () -> Objects.requireNonNull(LoadImage.loadImage("src/main/resources/com/espol/moderncontacts/fotos/profile.png"))));
     }
 }
