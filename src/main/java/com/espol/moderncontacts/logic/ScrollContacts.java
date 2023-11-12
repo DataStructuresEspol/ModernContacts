@@ -1,24 +1,41 @@
 package com.espol.moderncontacts.logic;
 
-import java.util.ListIterator;
-
 import com.espol.moderncontacts.model.Contacto;
 
 public class ScrollContacts {
-    private Contacto initialContact;
-    private ListIterator<Contacto> contactsIterator;
+    private int currentContactIndex;
+    private Contacto currentObservedContact;
+    private final int size;
 
     public ScrollContacts() {
-        initialContact = Contacto.getUserContacts().getFirst();
-        contactsIterator = Contacto.getUserContacts().listIterator();
+        currentObservedContact = Contacto.getUserContacts().getFirst();
+        currentContactIndex = 0;
+        size = Contacto.getUserContacts().size();
     }
 
-    public Contacto nextContact() {
-        return contactsIterator.next();
+    public void nextContact() {
+        if (currentContactIndex+1 >= size) {
+            currentContactIndex = 0;
+            currentObservedContact = Contacto.getUserContacts().getFirst();
+        }
+        else {
+            currentContactIndex++;
+            currentObservedContact = Contacto.getUserContacts().get(currentContactIndex);
+        }
     }
 
-    public Contacto previousContact() {
-        return contactsIterator.previous();
+    public void previousContact() {
+        if (currentContactIndex-1 < 0) {
+            currentContactIndex = size - 1;
+            currentObservedContact = Contacto.getUserContacts().getLast();
+        }
+        else {
+            currentContactIndex--;
+            currentObservedContact = Contacto.getUserContacts().get(currentContactIndex);
+        }
     }
 
+    public Contacto getCurrentObservedContact() {
+        return currentObservedContact;
+    }
 }

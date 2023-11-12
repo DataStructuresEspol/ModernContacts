@@ -1,14 +1,8 @@
 package com.espol.moderncontacts;
 
-import java.io.IOException;
-import java.util.Objects;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
@@ -20,9 +14,6 @@ public class PrimaryController {
     private final String RESOURCES_PATH = "src/main/resources/com/espol/moderncontacts/";
 
     @FXML
-    private VBox contacts;
-
-    @FXML
     private Label currentObservedContactName;
 
     @FXML
@@ -32,16 +23,7 @@ public class PrimaryController {
     private ImageView editProfile;
 
     @FXML
-    private ImageView nextContact;
-
-    @FXML
-    private ImageView previousContact;
-
-    @FXML
     private Circle profilePic;
-
-    @FXML
-    private ScrollPane scrollPane;
 
     @FXML
     private Label userContactsAmount;
@@ -55,6 +37,7 @@ public class PrimaryController {
     private void initialize() {
         showContacts();
         scrollContacts = new ScrollContacts();
+        setCurrentObservedContact();
     }
 
     private void showContacts() {
@@ -94,21 +77,23 @@ public class PrimaryController {
         username.setText(Contacto.getUser().getNombre());
         ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + Contacto.getUser().getFotoPerfil());
         profilePic.setFill(imagePattern);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setStyle("-fx-background-color: transparent;");
     }
 
     @FXML
     private void setNextContact() {
-        currentObservedContactName.setText(scrollContacts.nextContact().getNombre());
-        ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + scrollContacts.nextContact().getFotoPerfil());
-        currentObservedContactPic.setFill(imagePattern);
+        scrollContacts.nextContact();
+        setCurrentObservedContact();
     }
 
     @FXML
     private void setPreviousContact() {
-        currentObservedContactName.setText(scrollContacts.previousContact().getNombre());
-        ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + scrollContacts.previousContact().getFotoPerfil());
+        scrollContacts.previousContact();
+        setCurrentObservedContact();
+    }
+
+    private void setCurrentObservedContact() {
+        currentObservedContactName.setText(scrollContacts.getCurrentObservedContact().getNombre());
+        ImagePattern imagePattern = LoadImage.loadPattern(RESOURCES_PATH + "fotos/" + scrollContacts.getCurrentObservedContact().getFotoPerfil());
         currentObservedContactPic.setFill(imagePattern);
     }
 }
