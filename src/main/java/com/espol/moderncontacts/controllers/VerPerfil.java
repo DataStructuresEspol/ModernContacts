@@ -1,24 +1,20 @@
 
-package com.espol.moderncontacts;
+package com.espol.moderncontacts.controllers;
 
+import com.espol.moderncontacts.PrimaryController;
 import com.espol.moderncontacts.model.Contacto;
-import com.espol.moderncontacts.model.Empresa;
 import com.espol.moderncontacts.model.Persona;
-import com.espol.moderncontacts.util.ModelUtils;
+import com.espol.moderncontacts.util.LoadImage;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 
 public class VerPerfil {
-
-    @FXML
-    private ImageView fotoPerfil;
-
     @FXML
     private Label nombrePerfil;
 
@@ -36,6 +32,9 @@ public class VerPerfil {
 
     @FXML
     private Label redes;
+
+    @FXML
+    private Circle profilePic;
     
     @FXML
     void initialize(){
@@ -56,31 +55,22 @@ public class VerPerfil {
             System.out.println(persona.getFotoPerfil());
             llenarPersona(persona);
         }
-        
-        
-        
-        
     }
 
     @FXML
-    void borrarPerfil(MouseEvent event) {
-        
-    }
+    void borrarPerfil(MouseEvent event) {}
 
     @FXML
-    void retroceder(MouseEvent event) {
-
-    }
+    void retroceder(MouseEvent event) {}
     
     private void llenarPersona(Persona p){
         nombrePerfil.setText(p.getNombreCompleto());
         numeros.setText(p.getTelefono());
-        if (p.getFotoPerfil()!=null){fotoPerfil.setImage(ModelUtils.getImage(App.fotoRuta + p.getFotoPerfil()));}
+        profilePic.setFill(LoadImage.loadPattern(PrimaryController.RESOURCES_PATH + "fotos/" + p.getFotoPerfil()));
         if (p.getDireccion()!=null){direcciones.setText(p.getDireccion().toString());}
         if (!p.getEmails().isEmpty()){emails.setText(p.getTodoEmail());}
         if (p.getFechaCumple()!=null){fechas.setText(p.getFechaCumple().toString());}
         if (!p.getRedesSociales().isEmpty()){redes.setText(p.getTodoRedes());}
     }
-
 }
 

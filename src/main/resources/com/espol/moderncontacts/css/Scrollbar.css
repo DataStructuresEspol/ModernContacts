@@ -3,8 +3,9 @@
 }
 
 .increment-button, .decrement-button {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+    -fx-background-color: #353536;
+    -fx-border-color: #353536;
+    -fx-border: 2px solid #353536;
 }
 
 .scroll-bar:vertical .track{
