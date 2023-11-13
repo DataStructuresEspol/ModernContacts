@@ -63,10 +63,10 @@ public class AgregarContacto {
     private TextField mes;
     @FXML
     private TextField dia;
-    private Image pic;
-    
+    private String rutaImagen;
     @FXML
     void initialize(){
+        rutaImagen=null;
         if (tipo.equals("empresa")){
             nombreBox.getChildren().remove(2);
             nombreBox.getChildren().remove(2);
@@ -86,6 +86,7 @@ public class AgregarContacto {
         if (tipo.equals("persona")){
             Persona persona = new Persona(nombre.getText(), apellido.getText(), celular.getText());
             
+            if (rutaImagen!=null){persona.setFotoPerfil(rutaImagen);}
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
                 persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
             }
@@ -103,6 +104,7 @@ public class AgregarContacto {
         }
         else{
             Empresa empresa = new Empresa(nombre.getText(), celular.getText());
+            if (rutaImagen!=null){empresa.setFotoPerfil(rutaImagen);}
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
                 empresa.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
             }
@@ -123,6 +125,7 @@ public class AgregarContacto {
 
     @FXML
     private void uploadImage(MouseEvent event) throws IOException {
-        profilePic.setFill(LoadImage.loadPattern(LoadImage.imageDialog()));
+        rutaImagen = LoadImage.imageDialog();
+        profilePic.setFill(LoadImage.loadPattern(App.fotoRuta+rutaImagen));
     }
 }

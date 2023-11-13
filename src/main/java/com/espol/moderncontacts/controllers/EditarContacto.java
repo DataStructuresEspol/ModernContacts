@@ -64,6 +64,7 @@ public class EditarContacto {
     private TextField mes;
     @FXML
     private TextField dia;
+    private String rutaImagen;
     @FXML
     void initialize(){
         
@@ -98,6 +99,7 @@ public class EditarContacto {
             persona.setApellido(apellido.getText());
             persona.setTelefono(celular.getText());
             boolean find = false;
+            if (rutaImagen!=null){persona.setFotoPerfil(rutaImagen);}
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
                 for (int i=0; i<persona.getEmails().size(); i++){
                     if (persona.getEmails().get(i).getTipoEmail().equals(tipoEmail.getValue())){
@@ -135,6 +137,7 @@ public class EditarContacto {
             Empresa empresa = (Empresa) Contacto.getSelectedContact();
             empresa.setNombre(nombre.getText());
             empresa.setTelefono(celular.getText());
+            if (rutaImagen!=null){empresa.setFotoPerfil(rutaImagen);}
             boolean find = false;
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
                 for (int i=0; i<empresa.getEmails().size(); i++){
@@ -201,6 +204,7 @@ public class EditarContacto {
         profilePic.setFill(LoadImage.loadPattern(PrimaryController.RESOURCES_PATH + "fotos/" + e.getFotoPerfil()));
         nombre.setText(e.getNombre());
         celular.setText(e.getTelefono());
+        
         if (!e.getEmails().isEmpty()){
             tipoEmail.setValue(e.getEmails().get(0).getTipoEmail());
             email.setText(e.getEmails().get(0).getEmail());
@@ -221,6 +225,7 @@ public class EditarContacto {
 
     @FXML
     private void uploadImage(MouseEvent event) throws IOException {
-        profilePic.setFill(LoadImage.loadPattern(LoadImage.imageDialog()));
+        rutaImagen = LoadImage.imageDialog();
+        profilePic.setFill(LoadImage.loadPattern(App.fotoRuta+rutaImagen));
     }
 }

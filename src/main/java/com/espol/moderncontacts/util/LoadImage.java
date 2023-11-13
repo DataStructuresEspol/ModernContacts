@@ -1,7 +1,9 @@
 package com.espol.moderncontacts.util;
 
+import com.espol.moderncontacts.App;
 import java.io.File;
 import java.io.FileInputStream;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 import javafx.scene.image.Image;
@@ -25,10 +27,15 @@ public class LoadImage {
 
     public static String imageDialog() {
         FileChooser fileChooser = new FileChooser();
+        File directorioInicial = new File(App.fotoRuta);
+        fileChooser.setInitialDirectory(directorioInicial);
         File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
-            return selectedFile.getAbsolutePath();
+            String rutaAbsoluta = selectedFile.getAbsolutePath();
+            String rutaBase = Paths.get(App.fotoRuta).toAbsolutePath().toString();
+            String rutaRelativa = Paths.get(rutaBase).relativize(Paths.get(rutaAbsoluta)).toString();
+            return rutaRelativa;
         }
         return null;
     }
