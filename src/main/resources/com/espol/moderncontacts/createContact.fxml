@@ -26,19 +26,19 @@
                         <Font size="18.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="20.0" top="10.0" />
+                        <Insets left="40.0" top="10.0" />
                      </HBox.margin>
                   </Label>
                </children>
             </HBox>
             <Button fx:id="btnEm" mnemonicParsing="false" onMouseClicked="#crearContactEmp" text="Empresa">
                <VBox.margin>
-                  <Insets left="20.0" top="30.0" />
+                  <Insets left="120.0" top="30.0" />
                </VBox.margin>
             </Button>
             <Button fx:id="btnPer" mnemonicParsing="false" onMouseClicked="#crearContactPerson" text="Persona">
                <VBox.margin>
-                  <Insets left="20.0" top="30.0" />
+                  <Insets left="120.0" top="30.0" />
                </VBox.margin>
             </Button>
          </children>
