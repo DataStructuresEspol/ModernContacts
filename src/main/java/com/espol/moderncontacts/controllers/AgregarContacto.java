@@ -123,8 +123,6 @@ public class AgregarContacto {
 
     @FXML
     private void uploadImage(MouseEvent event) throws IOException {
-        Image img = LoadImage.imageDialog();
-        profilePic.setFill(new ImagePattern(img));
-        
+        profilePic.setFill(LoadImage.loadPattern(LoadImage.imageDialog()));
     }
 }
