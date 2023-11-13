@@ -23,13 +23,12 @@ public class LoadImage {
         return new ImagePattern(Objects.requireNonNullElseGet(img, () -> Objects.requireNonNull(LoadImage.loadImage("src/main/resources/com/espol/moderncontacts/fotos/profile.png"))));
     }
 
-    public static Image imageDialog() {
+    public static String imageDialog() {
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
-            String path = selectedFile.getAbsolutePath();
-            return LoadImage.loadImage(path);
+            return selectedFile.getAbsolutePath();
         }
         return null;
     }
