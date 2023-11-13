@@ -39,21 +39,9 @@ public class VerPerfil {
 
     @FXML
     private Circle profilePic;
-    
     @FXML
     void initialize(){
-        String ruta = "src/main/resources/com/espol/moderncontacts/serializables/contactos.ser";
-        ArrayList<Contacto> objeto = new ArrayList<Contacto>();
-        try {
-            FileInputStream fileIn = new FileInputStream(ruta);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            objeto = (ArrayList<Contacto>) in.readObject();
-            in.close();
-            fileIn.close();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        Contacto contacto = Contacto.getSelectedContact(); //Eliminar cuando se enlazen las páginas
+        Contacto contacto = Contacto.getSelectedContact(); 
         if (contacto.getTipo().equals("persona")){
             Persona persona = (Persona) contacto;
             llenarPersona(persona);
@@ -94,6 +82,11 @@ public class VerPerfil {
         if (!e.getEmails().isEmpty()){emails.setText(e.getTodoEmail());}
         if (e.getFechaAniversario()!=null){fechas.setText(e.getFechaAniversario().toString());}
         if (!e.getRedesSociales().isEmpty()){redes.setText(e.getTodoRedes());}
+    }
+
+    @FXML
+    private void editarPerfil(MouseEvent event) throws IOException{
+        App.setRoot("editContact");
     }
 
 }

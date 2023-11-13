@@ -18,7 +18,7 @@
    <content>
       <VBox alignment="CENTER" fillWidth="false" prefWidth="409.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #52daa4, #FFF);">
          <children>
-            <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="419.0" spacing="300.0">
+            <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="378.0" spacing="140.0">
                <children>
                   <ImageView fitHeight="40.0" fitWidth="97.0" onMouseClicked="#retroceder" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -28,13 +28,24 @@
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="39.0" fitWidth="78.0" onMouseClicked="#borrarPerfil" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="124.0" onMouseClicked="#borrarPerfil" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/delete-outline.png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="124.0" onMouseClicked="#editarPerfil" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@fotos/edit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </ImageView>
                </children>
             </HBox>

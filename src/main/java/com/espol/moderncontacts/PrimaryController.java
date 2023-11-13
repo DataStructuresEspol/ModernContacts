@@ -10,6 +10,7 @@ import com.espol.moderncontacts.logic.ScrollContacts;
 import com.espol.moderncontacts.model.Contacto;
 import com.espol.moderncontacts.util.LoadImage;
 import java.io.IOException;
+import javafx.scene.input.MouseEvent;
 
 public class PrimaryController {
     public static final String RESOURCES_PATH = "src/main/resources/com/espol/moderncontacts/";
@@ -33,7 +34,10 @@ public class PrimaryController {
     private Label username;
 
     ScrollContacts scrollContacts;
-
+    @FXML
+    private ImageView previousContact;
+    @FXML
+    private ImageView nextContact;
     @FXML
     private void initialize(){
         showContacts();
@@ -118,6 +122,11 @@ public class PrimaryController {
     private void visualizarPerfil(Contacto c) throws IOException{
         Contacto.setSelectedContact(c);
         App.setRoot("verPerfil");
+    }
+
+    @FXML
+    private void agregarContacto(MouseEvent event) throws IOException{
+        App.setRoot("createContact");
     }
 }
 

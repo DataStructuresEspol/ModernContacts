@@ -12,15 +12,28 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="420.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.moderncontacts.PrimaryController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="420.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.moderncontacts.PrimaryController">
    <children>
-      <HBox prefHeight="13.0" prefWidth="560.0">
+      <HBox alignment="TOP_CENTER" prefHeight="13.0" prefWidth="560.0">
          <children>
-            <Label text="Contactos">
-               <font>
-                  <Font name="DejaVu Sans Bold" size="23.0" />
-               </font>
-            </Label>
+            <VBox prefHeight="34.0" prefWidth="143.0">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="118.0" text="Contactos">
+                     <font>
+                        <Font name="DejaVu Sans Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_RIGHT" prefHeight="68.0" prefWidth="247.0">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="57.0" onMouseClicked="#agregarContacto" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@fotos/create.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center; -fx-spacing: 20;">
