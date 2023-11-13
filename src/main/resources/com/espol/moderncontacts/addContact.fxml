@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent;" stylesheets="@css/Scrollbar.css" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.moderncontacts.controllers.AgregarContacto">
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent;" stylesheets="@css/Scrollbar.css" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.moderncontacts.controllers.AgregarContacto">
     <content>
         <VBox alignment="CENTER" fillWidth="false" prefWidth="409.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #52daa4, #FFF);">
             <children>
@@ -146,9 +154,18 @@
                                         <Font name="Lato Bold" size="13.0" />
                                     </font>
                                 </Label>
-                                <HBox prefHeight="25.0" prefWidth="111.0">
+                                <HBox prefHeight="25.0" prefWidth="209.0">
                                     <children>
-                                        <TextField fx:id="fecha" prefHeight="25.0" prefWidth="194.0" />
+                              <HBox prefHeight="25.0" prefWidth="188.0">
+                                 <children>
+                                    <Label text="Año: " />
+                                    <TextField fx:id="anio" prefHeight="25.0" prefWidth="29.0" />
+                                    <Label text="Mes: " />
+                                    <TextField fx:id="mes" prefHeight="25.0" prefWidth="29.0" />
+                                    <Label text="Día: " />
+                                    <TextField fx:id="dia" prefHeight="25.0" prefWidth="29.0" />
+                                 </children>
+                              </HBox>
                                     </children>
                                 </HBox>
                             </children>
