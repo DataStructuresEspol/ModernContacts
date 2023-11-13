@@ -1,6 +1,7 @@
 
-package com.espol.moderncontacts;
+package com.espol.moderncontacts.controllers;
 
+import com.espol.moderncontacts.App;
 import com.espol.moderncontacts.model.Direccion;
 import com.espol.moderncontacts.model.Email;
 import com.espol.moderncontacts.model.Empresa;
@@ -9,6 +10,8 @@ import com.espol.moderncontacts.model.RedSocial;
 import com.espol.moderncontacts.model.TipoDireccion;
 import com.espol.moderncontacts.model.TipoEmail;
 import com.espol.moderncontacts.model.TipoRedSocial;
+
+import java.io.IOException;
 import java.util.Date;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -17,11 +20,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Circle;
 
 public class AgregarContacto {
 
     @FXML
-    private ImageView fotoPerfil;
+    private Circle profilePic;
 
     @FXML
     private TextField celular;
@@ -61,7 +65,8 @@ public class AgregarContacto {
     }
     
     @FXML
-    private void retroceder(MouseEvent event) {
+    private void retroceder(MouseEvent event) throws IOException {
+        App.setRoot("primary");
     }
 
     @FXML
