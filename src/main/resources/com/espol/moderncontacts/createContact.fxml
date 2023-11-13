@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -14,6 +16,11 @@
          <children>
             <HBox prefHeight="52.0" prefWidth="291.0">
                <children>
+                  <ImageView fitHeight="51.0" fitWidth="45.0" onMouseClicked="#retroceder">
+                     <image>
+                        <Image url="@fotos/return.png" />
+                     </image>
+                  </ImageView>
                   <Label text="Crear Contacto">
                      <font>
                         <Font size="18.0" />
