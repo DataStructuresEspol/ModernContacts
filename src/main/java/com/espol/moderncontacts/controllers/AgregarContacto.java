@@ -43,7 +43,6 @@ public class AgregarContacto {
     public ChoiceBox<TipoDireccion> tipoDireccion;
     @FXML
     private TextField direccion;
-    private TextField fecha;
     @FXML
     public ChoiceBox<TipoRedSocial> tipoRed;
     @FXML
@@ -94,7 +93,8 @@ public class AgregarContacto {
                 persona.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
             }
             if(!anio.getText().isBlank() && !mes.getText().isBlank() && !dia.getText().isBlank()){
-                persona.setFechaCumple(new Date(fecha.getText()));
+                persona.setFechaCumple(new Date(Integer.parseInt(
+                        anio.getText()), Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText())));
             }
             if(!red.getText().isBlank() && tipoRed.getValue()!=null){
                 persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
@@ -112,7 +112,8 @@ public class AgregarContacto {
                 empresa.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
             }
             if(!anio.getText().isBlank() && !mes.getText().isBlank() && !dia.getText().isBlank()){
-                empresa.setFechaAniversario(new Date(fecha.getText()));
+                empresa.setFechaAniversario(new Date(Integer.parseInt(
+                        anio.getText()), Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText())));
             }
             if(!red.getText().isBlank() && tipoRed.getValue()!=null){
                 empresa.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
