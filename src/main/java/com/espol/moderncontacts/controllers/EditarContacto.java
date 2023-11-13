@@ -56,18 +56,8 @@ public class EditarContacto {
     
     @FXML
     void initialize(){
-        String ruta = "src/main/resources/com/espol/moderncontacts/serializables/contactos.ser";
-        ArrayList<Contacto> objeto = new ArrayList<Contacto>();
-        try {
-            FileInputStream fileIn = new FileInputStream(ruta);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            objeto = (ArrayList<Contacto>) in.readObject();
-            in.close();
-            fileIn.close();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        contacto = objeto.get(9); //Eliminar cuando se enlazen las páginas
+        
+        contacto = Contacto.getSelectedContact();
        
         if (contacto.getTipo().equals("empresa")){
             nombreBox.getChildren().remove(2);
