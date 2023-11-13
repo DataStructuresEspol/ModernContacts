@@ -2,6 +2,7 @@
 package com.espol.moderncontacts.controllers;
 
 import com.espol.moderncontacts.App;
+import com.espol.moderncontacts.model.Contacto;
 import com.espol.moderncontacts.model.Direccion;
 import com.espol.moderncontacts.model.Email;
 import com.espol.moderncontacts.model.Empresa;
@@ -37,7 +38,6 @@ public class AgregarContacto {
     public ChoiceBox<TipoDireccion> tipoDireccion;
     @FXML
     private TextField direccion;
-    @FXML
     private TextField fecha;
     @FXML
     public ChoiceBox<TipoRedSocial> tipoRed;
@@ -52,7 +52,13 @@ public class AgregarContacto {
     private TextField apellido;
     @FXML
     public HBox nombreBox;
-
+    @FXML
+    private TextField anio;
+    @FXML
+    private TextField mes;
+    @FXML
+    private TextField dia;
+    
     @FXML
     void initialize(){
         if (tipo.equals("empresa")){
@@ -70,22 +76,42 @@ public class AgregarContacto {
     }
 
     @FXML
-    private void guardarPerfil(MouseEvent event) {
+    private void guardarPerfil(MouseEvent event) throws IOException{
         if (tipo.equals("persona")){
             Persona persona = new Persona(nombre.getText(), apellido.getText(), celular.getText());
-            persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
-            persona.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
-            persona.setFechaCumple(new Date(fecha.getText()));
-            persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
+                persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
+            }
+            if(!direccion.getText().isBlank()){
+                persona.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
+            }
+            if(!anio.getText().isBlank() && !mes.getText().isBlank() && !dia.getText().isBlank()){
+                persona.setFechaCumple(new Date(fecha.getText()));
+            }
+            if(!red.getText().isBlank() && tipoRed.getValue()!=null){
+                persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            }
+            Contacto.getUser().getContactosRelacionados().add(persona);
+            
         }
         else{
             Empresa empresa = new Empresa(nombre.getText(), celular.getText());
-            empresa.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
-            empresa.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
-            empresa.setFechaAniversario(new Date(fecha.getText()));
-            empresa.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
+                empresa.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
+            }
+            if(!direccion.getText().isBlank()){
+                empresa.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
+            }
+            if(!anio.getText().isBlank() && !mes.getText().isBlank() && !dia.getText().isBlank()){
+                empresa.setFechaAniversario(new Date(fecha.getText()));
+            }
+            if(!red.getText().isBlank() && tipoRed.getValue()!=null){
+                empresa.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            }
+            Contacto.getUser().getContactosRelacionados().add(empresa);
         }
-
+        
+        App.setRoot("primary");
     }
 
    
