@@ -14,6 +14,8 @@ import com.espol.moderncontacts.model.TipoEmail;
 import com.espol.moderncontacts.model.TipoRedSocial;
 import com.espol.moderncontacts.util.LoadImage;
 import com.espol.moderncontacts.util.ModelUtils;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -23,9 +25,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 
 public class EditarContacto {
 
@@ -212,6 +217,13 @@ public class EditarContacto {
             tipoRed.setValue(e.getRedesSociales().get(0).getTipoRedSocial());
             red.setText(e.getRedesSociales().get(0).getRed());
         }
+    }
+
+    @FXML
+    private void uploadImage(MouseEvent event) throws IOException {
+        Image img = LoadImage.imageDialog();
+        assert img != null;
+        profilePic.setFill(new ImagePattern(img));
     }
     
 }

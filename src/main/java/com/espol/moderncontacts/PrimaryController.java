@@ -117,8 +117,16 @@ public class PrimaryController {
                 ex.printStackTrace();
             }
         });
+        currentObservedContactName.setOnMouseClicked((e)-> {
+            try {
+                visualizarPerfil(scrollContacts.getCurrentObservedContact());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
     }
-    
+
+    @FXML
     private void visualizarPerfil(Contacto c) throws IOException{
         Contacto.setSelectedContact(c);
         App.setRoot("verPerfil");

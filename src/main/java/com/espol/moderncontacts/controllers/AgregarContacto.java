@@ -11,17 +11,22 @@ import com.espol.moderncontacts.model.RedSocial;
 import com.espol.moderncontacts.model.TipoDireccion;
 import com.espol.moderncontacts.model.TipoEmail;
 import com.espol.moderncontacts.model.TipoRedSocial;
+import com.espol.moderncontacts.util.LoadImage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 
 public class AgregarContacto {
 
@@ -114,5 +119,10 @@ public class AgregarContacto {
         App.setRoot("primary");
     }
 
-   
+    @FXML
+    private void uploadImage(MouseEvent event) throws IOException {
+        Image img = LoadImage.imageDialog();
+        assert img != null;
+        profilePic.setFill(new ImagePattern(img));
+    }
 }
