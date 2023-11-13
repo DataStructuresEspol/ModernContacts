@@ -72,5 +72,14 @@ public class CreateContactController implements Initializable {
             }
         }
     }
+
+    @FXML
+    private void retroceder(MouseEvent event) {
+        try {
+            App.setRoot("primary");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     
 }
