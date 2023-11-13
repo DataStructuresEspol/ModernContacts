@@ -51,7 +51,6 @@ public class AgregarContacto {
 
     @FXML
     void initialize(){
-        tipo = "persona"; //Eliminar cuando se enlazen las páginas
         if (tipo.equals("empresa")){
             nombreBox.getChildren().remove(2);
             nombreBox.getChildren().remove(2);

@@ -1,6 +1,7 @@
 
 package com.espol.moderncontacts.controllers;
 
+import com.espol.moderncontacts.App;
 import com.espol.moderncontacts.PrimaryController;
 import com.espol.moderncontacts.model.Contacto;
 import com.espol.moderncontacts.model.Direccion;
@@ -53,7 +54,6 @@ public class EditarContacto {
     private TextField red;
     
     private Contacto contacto;
-    
     @FXML
     void initialize(){
         
@@ -76,17 +76,26 @@ public class EditarContacto {
     }
     
     @FXML
-    private void retroceder(MouseEvent event) {
+    private void retroceder(MouseEvent event) throws IOException{
+        App.setRoot("verPerfil");
     }
 
     @FXML
     private void guardarPerfil(MouseEvent event) {
         if (contacto.getTipo().equals("persona")){
             Persona persona = new Persona(nombre.getText(), apellido.getText(), celular.getText());
-            persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
-            persona.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
-            persona.setFechaCumple(new Date(fecha.getText()));
-            persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
+                persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));}
+            if(!direccion.getText().isBlank()){
+                persona.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
+            }
+            System.out.println(fecha.getText().isEmpty());
+            if(!fecha.getText().isBlank()){
+                persona.setFechaCumple(new Date(fecha.getText()));
+            }
+            if(!red.getText().isBlank() && tipoRed.getValue()!=null){
+                persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            }
         }
         else{
             Empresa empresa = new Empresa(nombre.getText(), celular.getText());

@@ -22,7 +22,7 @@
             <children>
                 <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="419.0" spacing="300.0">
                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="40.0" fitWidth="97.0" onMouseClicked="#retroceder" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@images/return.png" />
                             </image>
@@ -30,7 +30,7 @@
                                 <Cursor fx:constant="OPEN_HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fitHeight="39.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="39.0" fitWidth="78.0" onMouseClicked="#guardarPerfil" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@images/check.png" />
                             </image>
