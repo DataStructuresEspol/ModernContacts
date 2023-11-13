@@ -17,6 +17,6 @@ public class Empresa extends Contacto{
     
     public void setFechaAniversario(Date fecha){fechaAniversario = fecha;}
     
-    
+     public String getFechaString(){return fechaAniversario.getYear()+"/"+fechaAniversario.getMonth()+"/"+fechaAniversario.getDay();}
     
 }

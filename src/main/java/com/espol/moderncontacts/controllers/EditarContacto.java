@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -47,13 +48,17 @@ public class EditarContacto {
     @FXML
     private TextField direccion;
     @FXML
-    private TextField fecha;
-    @FXML
     private ChoiceBox<TipoRedSocial> tipoRed;
     @FXML
     private TextField red;
     
     private Contacto contacto;
+    @FXML
+    private TextField anio;
+    @FXML
+    private TextField mes;
+    @FXML
+    private TextField dia;
     @FXML
     void initialize(){
         
@@ -81,29 +86,45 @@ public class EditarContacto {
     }
 
     @FXML
-    private void guardarPerfil(MouseEvent event) {
+    private void guardarPerfil(MouseEvent event) throws IOException{
         if (contacto.getTipo().equals("persona")){
-            Persona persona = new Persona(nombre.getText(), apellido.getText(), celular.getText());
+            Persona persona = (Persona) Contacto.getSelectedContact();
+            persona.setNombre(nombre.getText());
+            persona.setApellido(apellido.getText());
+            persona.setTelefono(celular.getText());
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
                 persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));}
             if(!direccion.getText().isBlank()){
                 persona.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
             }
-            System.out.println(fecha.getText().isEmpty());
-            if(!fecha.getText().isBlank()){
-                persona.setFechaCumple(new Date(fecha.getText()));
+            
+            if(!anio.getText().isBlank() && !mes.getText().isBlank() && !dia.getText().isBlank()){
+                persona.setFechaCumple(new Date(Integer.parseInt(
+                        anio.getText()), Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText())));
             }
             if(!red.getText().isBlank() && tipoRed.getValue()!=null){
                 persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
             }
         }
         else{
-            Empresa empresa = new Empresa(nombre.getText(), celular.getText());
-            empresa.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
-            empresa.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
-            empresa.setFechaAniversario(new Date(fecha.getText()));
-            empresa.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            Empresa empresa = (Empresa) Contacto.getSelectedContact();
+            empresa.setNombre(nombre.getText());
+            empresa.setTelefono(celular.getText());
+            if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
+                empresa.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));}
+            if(!direccion.getText().isBlank()){
+                empresa.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
+            }
+            
+            if(!anio.getText().isBlank() && !mes.getText().isBlank() && !dia.getText().isBlank()){
+                empresa.setFechaAniversario(new Date(Integer.parseInt(
+                        anio.getText()), Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText())));
+            }
+            if(!red.getText().isBlank() && tipoRed.getValue()!=null){
+                empresa.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+            }
         }
+        App.setRoot("verPerfil");
     }
     
     private void llenarPersona(Persona p){
@@ -119,7 +140,11 @@ public class EditarContacto {
             tipoDireccion.setValue(p.getDireccion().getTipoDireccion());
             direccion.setText(p.getDireccion().getDireccion());
         }
-        if (p.getFechaCumple()!=null){fecha.setText(p.getFechaCumple().toString());}
+        if (p.getFechaCumple()!=null){
+            anio.setText(p.getFechaCumple().getYear()+"");
+            mes.setText(p.getFechaCumple().getMonth()+"");
+            dia.setText(p.getFechaCumple().getDay()+"");
+        }
         if (!p.getRedesSociales().isEmpty()){
             tipoRed.setValue(p.getRedesSociales().get(0).getTipoRedSocial());
             red.setText(p.getRedesSociales().get(0).getRed());
@@ -139,7 +164,10 @@ public class EditarContacto {
             tipoDireccion.setValue(e.getDireccion().getTipoDireccion());
             direccion.setText(e.getDireccion().getDireccion());
         }
-        if (e.getFechaAniversario()!=null){fecha.setText(e.getFechaAniversario().toString());}
+        if (e.getFechaAniversario()!=null){
+            anio.setText(e.getFechaAniversario().getYear()+"");
+            mes.setText(e.getFechaAniversario().getMonth()+"");
+            dia.setText(e.getFechaAniversario().getDay()+"");}
         if (!e.getRedesSociales().isEmpty()){
             tipoRed.setValue(e.getRedesSociales().get(0).getTipoRedSocial());
             red.setText(e.getRedesSociales().get(0).getRed());

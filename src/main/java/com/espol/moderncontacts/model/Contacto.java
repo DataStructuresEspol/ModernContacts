@@ -179,6 +179,8 @@ public class Contacto implements Serializable{
         return result;
     }
     
+    public void setTelefono(String t){telefono = t;}
+    
     public void setNombre(String n){nombre = n;}
 
 

@@ -147,14 +147,23 @@
                                 <Image url="@fotos/fecha.png" />
                             </image>
                         </ImageView>
-                        <VBox alignment="CENTER_LEFT" spacing="12.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <VBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="224.0" spacing="12.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <children>
                                 <Label text="Fechas" textFill="#464646">
                                     <font>
                                         <Font name="Lato Bold" size="13.0" />
                                     </font>
                                 </Label>
-                        <TextField fx:id="fecha" />
+                        <HBox prefHeight="25.0" prefWidth="111.0">
+                           <children>
+                              <Label text="Año: " />
+                              <TextField fx:id="anio" prefHeight="25.0" prefWidth="29.0" />
+                              <Label text="Mes: " />
+                              <TextField fx:id="mes" prefHeight="25.0" prefWidth="29.0" />
+                              <Label text="Día: " />
+                              <TextField fx:id="dia" prefHeight="25.0" prefWidth="29.0" />
+                           </children>
+                        </HBox>
                             </children>
                             <padding>
                                 <Insets left="30.0" />

@@ -70,7 +70,7 @@ public class VerPerfil {
         profilePic.setFill(LoadImage.loadPattern(PrimaryController.RESOURCES_PATH + "fotos/" + p.getFotoPerfil()));
         if (p.getDireccion()!=null){direcciones.setText(p.getDireccion().toString());}
         if (!p.getEmails().isEmpty()){emails.setText(p.getTodoEmail());}
-        if (p.getFechaCumple()!=null){fechas.setText(p.getFechaCumple().toString());}
+        if (p.getFechaCumple()!=null){fechas.setText(p.getFechaString());}
         if (!p.getRedesSociales().isEmpty()){redes.setText(p.getTodoRedes());}
     }
     
@@ -80,7 +80,9 @@ public class VerPerfil {
         profilePic.setFill(LoadImage.loadPattern(PrimaryController.RESOURCES_PATH + "fotos/" + e.getFotoPerfil()));
         if (e.getDireccion()!=null){direcciones.setText(e.getDireccion().toString());}
         if (!e.getEmails().isEmpty()){emails.setText(e.getTodoEmail());}
-        if (e.getFechaAniversario()!=null){fechas.setText(e.getFechaAniversario().toString());}
+        if (e.getFechaAniversario()!=null){
+            fechas.setText(e.getFechaString());
+        }
         if (!e.getRedesSociales().isEmpty()){redes.setText(e.getTodoRedes());}
     }
 

@@ -20,6 +20,8 @@ public class Persona extends Contacto{
         this.apellido = apellido;
         tipo = "persona";
     }
+    
+    public String getFechaString(){return fechaCumple.getYear()+"/"+fechaCumple.getMonth()+"/"+fechaCumple.getDay();}
     public String getApellido(){return apellido;}
     
     @Override
@@ -103,7 +105,7 @@ public class Persona extends Contacto{
         
         p4.setFechaCumple(new Date(2023, 6, 1));
         p1.setFechaCumple(new Date(2023, 1, 3));
-        p3.setFechaCumple(new Date(2023, 0, 14));
+        p3.setFechaCumple(new Date(2023, 1, 14));
         
         e3.setFechaAniversario(new Date(2023, 1, 1));
         e1.setFechaAniversario(new Date(2023, 7, 23));
