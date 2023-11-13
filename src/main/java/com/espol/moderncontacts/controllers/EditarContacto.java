@@ -92,8 +92,17 @@ public class EditarContacto {
             persona.setNombre(nombre.getText());
             persona.setApellido(apellido.getText());
             persona.setTelefono(celular.getText());
+            boolean find = false;
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
-                persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));}
+                for (int i=0; i<persona.getEmails().size(); i++){
+                    if (persona.getEmails().get(i).getTipoEmail().equals(tipoEmail.getValue())){
+                        persona.getEmails().get(i).setEmail(email.getText());
+                        persona.getEmails().get(i).setTipoEmail(tipoEmail.getValue());
+                        find = true;
+                    }
+                }
+             if (!find){persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));}
+            }
             if(!direccion.getText().isBlank()){
                 persona.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
             }
@@ -102,16 +111,36 @@ public class EditarContacto {
                 persona.setFechaCumple(new Date(Integer.parseInt(
                         anio.getText()), Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText())));
             }
+            find = false;
             if(!red.getText().isBlank() && tipoRed.getValue()!=null){
-                persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+                
+                if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
+                for (int i=0; i<persona.getRedesSociales().size(); i++){
+                    if (persona.getRedesSociales().get(i).getTipoRedSocial().equals(tipoRed.getValue())){
+                        persona.getRedesSociales().get(i).setRed(red.getText());
+                        persona.getRedesSociales().get(i).setTipoRedSocial(tipoRed.getValue());
+                        find = true;
+                    }
+                }
+             if (!find){persona.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));}
+            }
             }
         }
         else{
             Empresa empresa = (Empresa) Contacto.getSelectedContact();
             empresa.setNombre(nombre.getText());
             empresa.setTelefono(celular.getText());
+            boolean find = false;
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
-                empresa.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));}
+                for (int i=0; i<empresa.getEmails().size(); i++){
+                    if (empresa.getEmails().get(i).getTipoEmail().equals(tipoEmail.getValue())){
+                        empresa.getEmails().get(i).setEmail(email.getText());
+                        empresa.getEmails().get(i).setTipoEmail(tipoEmail.getValue());
+                        find = true;
+                    }
+                }
+             if (!find){empresa.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));}
+            }
             if(!direccion.getText().isBlank()){
                 empresa.setDireccion(new Direccion(direccion.getText(), tipoDireccion.getValue()));
             }
@@ -120,8 +149,19 @@ public class EditarContacto {
                 empresa.setFechaAniversario(new Date(Integer.parseInt(
                         anio.getText()), Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText())));
             }
+            find = false;
             if(!red.getText().isBlank() && tipoRed.getValue()!=null){
-                empresa.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));
+                
+                if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
+                for (int i=0; i<empresa.getRedesSociales().size(); i++){
+                    if (empresa.getRedesSociales().get(i).getTipoRedSocial().equals(tipoRed.getValue())){
+                        empresa.getRedesSociales().get(i).setRed(red.getText());
+                        empresa.getRedesSociales().get(i).setTipoRedSocial(tipoRed.getValue());
+                        find = true;
+                    }
+                }
+             if (!find){empresa.getRedesSociales().add(new RedSocial(red.getText(), tipoRed.getValue()));}
+            }
             }
         }
         App.setRoot("verPerfil");
