@@ -63,6 +63,7 @@ public class AgregarContacto {
     private TextField mes;
     @FXML
     private TextField dia;
+    private Image pic;
     
     @FXML
     void initialize(){
@@ -84,6 +85,7 @@ public class AgregarContacto {
     private void guardarPerfil(MouseEvent event) throws IOException{
         if (tipo.equals("persona")){
             Persona persona = new Persona(nombre.getText(), apellido.getText(), celular.getText());
+            
             if(tipoEmail.getValue()!=null && !email.getText().isBlank()){
                 persona.getEmails().add(new Email(email.getText(), tipoEmail.getValue()));
             }
@@ -122,7 +124,7 @@ public class AgregarContacto {
     @FXML
     private void uploadImage(MouseEvent event) throws IOException {
         Image img = LoadImage.imageDialog();
-        assert img != null;
         profilePic.setFill(new ImagePattern(img));
+        
     }
 }
