@@ -26,17 +26,17 @@ public class AgregarContacto {
     @FXML
     private TextField celular;
     @FXML
-    private ChoiceBox<TipoEmail> tipoEmail;
+    public ChoiceBox<TipoEmail> tipoEmail;
     @FXML
     private TextField email;
     @FXML
-    private ChoiceBox<TipoDireccion> tipoDireccion;
+    public ChoiceBox<TipoDireccion> tipoDireccion;
     @FXML
     private TextField direccion;
     @FXML
     private TextField fecha;
     @FXML
-    private ChoiceBox<TipoRedSocial> tipoRed;
+    public ChoiceBox<TipoRedSocial> tipoRed;
     @FXML
     private TextField red;
     
@@ -47,7 +47,7 @@ public class AgregarContacto {
     @FXML
     private TextField apellido;
     @FXML
-    private HBox nombreBox;
+    public HBox nombreBox;
 
     @FXML
     void initialize(){
